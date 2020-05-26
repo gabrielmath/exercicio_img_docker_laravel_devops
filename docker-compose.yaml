@@ -1,0 +1,61 @@
+version: '2.3'
+
+services:
+  app:
+    build: .
+    container_name: app
+    volumes:
+    - .:/var/www
+    networks:
+      - app-network
+    depends_on:
+      db:
+        condition: service_healthy
+
+  nginx:
+    build: .docker/nginx # Endereço/diretório da imagem que será buildada (podendo ser físico ou host)
+    container_name: nginx # Nome do container
+    restart: always # Ocasiões de reinício do container
+    tty: true # Permitir interatividade com o container (-it)
+    ports:
+    - "8000:80"
+    volumes:
+    - .:/var/www
+    networks:
+      - app-network
+    depends_on:
+      - app
+
+  db:
+    image: mysql:5.7
+    command: --innodb-use-native-aio=0
+    container_name: db
+    restart: always
+    tty: true
+    ports:
+    - "3306:3306"
+    volumes:
+    - ./.docker/dbdata:/var/lib/mysql
+    environment: # Setando variáveis de ambiente
+      - MYSQL_DATABASE=laravel
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=root
+    networks:
+      - app-network
+    healthcheck: # Verifica a se o container está pronto pra uso. Nesse caso, é feito um "select" em uma tabela. Se der certo, ok! Se não der, ele dá um intervalo de 10 segundos e tenta fazer no select novamente por durante 10 segundos. Repetirá a tentativa por 4 vezes.
+      test: ["CMD-SHELL", 'mysql -uroot --database=laravel --password=root --execute="SELECT count(table_name) > 0 FROM information_schema.tables;" --skip-column-names -B']
+      interval: 10s
+      timeout: 10s
+      retries: 4
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    expose:
+      - 6379
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
