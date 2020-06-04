@@ -7,7 +7,13 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## Sobre os Exercício
+## Parte 2: Exercícios - Docker/Laravel
+:heavy_check_mark: Nginx - Variáveis de Ambiente
+:heavy_check_mark: [Imagem GoLang](https://hub.docker.com/r/gabrielmath/codeeducation)
+
+
+
+## Parte 1: Exercícios - Laravel
 - Para visualizar a imagem do Laravel criada para a resolução do exercício,
 acesse [este link.](https://hub.docker.com/r/gabrielmath/exercicio_img_docker_laravel_devops)
 - Para o exercício de criação de ambiente a partir do docker-compose, basta clonar este projeto,
