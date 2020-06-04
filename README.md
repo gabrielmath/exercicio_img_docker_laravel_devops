@@ -8,8 +8,8 @@
 </p>
 
 ## Parte 2: Exercícios - Docker/Laravel
-:heavy_check_mark: Nginx - Variáveis de Ambiente
-:heavy_check_mark: [Imagem GoLang](https://hub.docker.com/r/gabrielmath/codeeducation)
+- :heavy_check_mark: Nginx - Variáveis de Ambiente
+- :heavy_check_mark: [Imagem GoLang](https://hub.docker.com/r/gabrielmath/codeeducation)
 
 
 
