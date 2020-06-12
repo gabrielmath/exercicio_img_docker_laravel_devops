@@ -7,6 +7,14 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## Parte 3: Exercícios - Processo de CI
+- :heavy_check_mark: Imagem do docker-compose criada
+- :heavy_check_mark: Trigger criada no GCP
+- :heavy_check_mark: Steps rodando normalmente
+- :heavy_check_mark: GitFlow integrado
+- :heavy_check_mark: GCP do Marketplace instalado no Github
+- :heavy_check_mark: Pull Request após Build no GCP
+
 ## Parte 2: Exercícios - Docker/Laravel
 - :heavy_check_mark: Nginx - Variáveis de Ambiente
 - :heavy_check_mark: [Imagem GoLang](https://hub.docker.com/r/gabrielmath/codeeducation)
